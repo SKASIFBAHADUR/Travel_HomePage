@@ -1,65 +1,137 @@
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import Stats from "@/components/Stats";
+import IncredibleIndia from "@/components/IncredibleIndia";
+import JourneyHeader from "@/components/JourneyHeader";
+import { countrySets } from "@/data/countrySets";
+import { destinations } from "@/data/destinations";
+import { videoSets } from "@/data/videoSets";
 import Image from "next/image";
+import dynamic from "next/dynamic";
+import StructuredData from "@/components/StructuredData"; // Import StructuredData
+
+// Lazy load heavy components for optimal performance
+const Explore = dynamic(() => import("@/components/Explore"), {
+    loading: () => <div className="h-20 w-full bg-gray-100 animate-pulse rounded-lg"></div>
+});
+
+const DestinationCarousel = dynamic(() => import("@/components/DestinationCarousel"), {
+    loading: () => <div className="h-64 w-full bg-gray-100 animate-pulse rounded-lg"></div>
+});
+
+const Favourites = dynamic(() => import("@/components/Favourites"), {
+    loading: () => <div className="h-20 w-full bg-gray-100 animate-pulse rounded-lg"></div>
+});
+
+const Testimonials = dynamic(() => import("@/components/Testimonials"), {
+    loading: () => <div className="h-96 w-full bg-gray-100 animate-pulse rounded-lg"></div>
+});
+
+const VoicesOfClients = dynamic(() => import("@/components/VoicesOfClients"), {
+    loading: () => <div className="h-64 w-full bg-gray-100 animate-pulse rounded-lg"></div>
+});
+
+const VideoCarousel = dynamic(() => import("@/components/VideoCarousel"), {
+    loading: () => <div className="h-64 w-full bg-gray-100 animate-pulse rounded-lg"></div>
+});
+
+const CountryCarousel = dynamic(() => import("@/components/CountryCarousel"), {
+    loading: () => <div className="h-64 w-full bg-gray-100 animate-pulse rounded-lg"></div>
+});
+
+const WhyChooseUs = dynamic(() => import("@/components/WhyChooseUs"), {
+    loading: () => <div className="h-64 w-full bg-gray-100 animate-pulse rounded-lg"></div>
+});
+
+const Grade = dynamic(() => import("@/components/Grade"), {
+    loading: () => <div className="h-64 w-full bg-gray-100 animate-pulse rounded-lg"></div>
+});
+
+const Footer = dynamic(() => import("@/components/Footer"), {
+    loading: () => <div className="h-96 w-full bg-gray-100 animate-pulse rounded-lg"></div>
+});
+
 
 export default function Home() {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+    return (
+        <main className="min-h-screen bg-white text-black">
+            <StructuredData />
+            <h1 className="sr-only">GetSetGo Holidays - Premium Tour Packages for Dubai, Thailand & More</h1>
+
+            {/* Navbar */}
+            <Navbar />
+
+            {/* Hero + Stats Section */}
+            <div className="relative">
+                <Hero />
+                <Stats />
+            </div>
+
+            {/* Incredible India Section */}
+            <div className="mt-24 bg-white">
+                <IncredibleIndia />
+
+                {/* First Carousel Section */}
+                <section className="pb-16 bg-white">
+                    <DestinationCarousel cards={destinations} />
+                </section>
+
+                {/* Explore Section */}
+                <Explore />
+
+                {/* Second Carousel Section */}
+                <section className="pb-16 bg-white">
+                    <DestinationCarousel cards={destinations} />
+                </section>
+
+                {/* Journey Header Section */}
+                <JourneyHeader />
+
+                {/* Third Carousel Section */}
+                <section className="pb-16 bg-white">
+                    <DestinationCarousel cards={destinations} />
+                </section>
+
+                {/* Testimonials Section */}
+                <Testimonials />
+
+                {/* Voices of Our Clients Section */}
+                <div className="mt-20">
+                    <VoicesOfClients />
+                    <div className="container mx-auto px-4 mt-8">
+                        <VideoCarousel sets={videoSets} />
+                    </div>
+                </div>
+
+                {/* Favourites Section */}
+                <Favourites />
+
+                {/* Country Carousel Section */}
+                <section className="mt-10 mb-20">
+                    <CountryCarousel sets={countrySets} />
+                </section>
+
+                {/* Why Choose Us Section */}
+                <WhyChooseUs />
+            </div>
+
+            {/* Grade Section */}
+            <Grade />
+
+            {/* Logo Section - Space between Grade and Footer */}
+            <div className="py-12 md:py-16 bg-white flex justify-start items-center pl-4 md:pl-8 lg:pl-16">
+                <Image
+                    src="/footer/GetSetGo-Holidays-logo1 1.png"
+                    alt="GetSetGo Holidays"
+                    width={200}
+                    height={80}
+                    className="w-40 md:w-48 h-auto object-contain"
+                />
+            </div>
+
+            {/* Footer */}
+            <Footer />
+
+        </main>
+    );
 }
