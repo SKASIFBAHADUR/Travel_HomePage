@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sree Travel Deals – React + Next.js + Tailwind CSS
+
+Migrated from the static HTML/CSS/JS implementation into a modern, component-based Next.js App Router application with TypeScript and Tailwind CSS. The original visual design, colors, typography, media assets, and animations have been preserved 100%.
+
+## Tech Stack
+- **Framework:** Next.js (App Router)
+- **UI Library:** React.js
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS + Brand CSS custom properties
+- **Icons:** Lucide React & inline SVGs
+
+## Project Structure
+```text
+trailblaze/
+├── public/
+│   └── assets/
+│       ├── images/        # 37 WebP destination and gallery photos
+│       └── videos/        # 4 MP4 video reels
+├── src/
+│   ├── app/
+│   │   ├── layout.tsx     # Root layout with SEO metadata & Google Fonts
+│   │   ├── page.tsx       # Main page orchestrating components
+│   │   └── globals.css    # Tailwind CSS + custom brand tokens & animations
+│   ├── components/
+│   │   ├── Navbar.tsx         # Sticky navigation, mobile drawer & section spy
+│   │   ├── Hero.tsx           # Hero section with parallax & looping video phone
+│   │   ├── Introduction.tsx   # About story, counter statistics & photo collage
+│   │   ├── Destinations.tsx   # 12-col asymmetric grid & upcoming packages
+│   │   ├── Experiences.tsx    # Arched experiential cards
+│   │   ├── VideoShowcase.tsx  # Video cards with custom play buttons
+│   │   ├── Gallery.tsx        # CSS column masonry layout
+│   │   ├── WhyChooseUs.tsx    # Value proposition cards
+│   │   ├── CallToAction.tsx   # WhatsApp & phone CTA banner
+│   │   ├── Footer.tsx         # Responsive footer with dynamic year
+│   │   ├── Lightbox.tsx       # Media modal for videos and images
+│   │   └── ScrollReveal.tsx   # IntersectionObserver scroll reveal hook
+│   ├── data/
+│   │   └── travelData.ts  # Structured content and card definitions
+│   └── types/
+│       └── index.ts       # TypeScript interfaces
+├── package.json
+├── tsconfig.json
+└── next.config.ts
+```
 
 ## Getting Started
 
-First, run the development server:
-
+### Development
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Production Build
+```bash
+npm run build
+npm run start
+```
