@@ -1,0 +1,11 @@
+{
+  "name": "sree-travel-deals-site",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix trailblaze run dev",
+    "build": "npm --prefix trailblaze run build",
+    "start": "npm --prefix trailblaze run start"
+  }
+}
+
